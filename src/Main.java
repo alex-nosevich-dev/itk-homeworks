@@ -1,6 +1,8 @@
 import java.util.ArrayList;
 import java.util.List;
 
+//Задание 1: StringBuilder и undo()
+
 public class Main {
     public static void main(String[] args) {
         PrettierStringBuilder sb = new PrettierStringBuilder();
