@@ -4,18 +4,15 @@ import java.util.ArrayDeque;
 
 public class PrettierStringBuilder {
     private StringBuilder sb = new StringBuilder();
-    private final int UNDO_LIMIT_SIZE = 10;
+    private final static int UNDO_LIMIT_SIZE = 10;
     private Deque<Snapshot> snapshots = new ArrayDeque<>();
-
-    public PrettierStringBuilder(){
-    }
 
     @Override
     public String toString() {
         return sb.toString();
     }
 
-    public void append (String state) {
+    public void append(String state) {
         Snapshot operation = new Snapshot(sb.toString());
         snapshots.push(operation);
         if (snapshots.size() > UNDO_LIMIT_SIZE) {
@@ -30,9 +27,6 @@ public class PrettierStringBuilder {
             sb.setLength(0);
             sb.append(lastOperation.getState());
         }
-        else {
-            return;
-        }
     }
 
     public void delete(int start, int end) {
@@ -43,6 +37,4 @@ public class PrettierStringBuilder {
         }
         sb.delete(start, end);
     }
-
-
 }
