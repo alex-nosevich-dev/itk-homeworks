@@ -1,13 +1,13 @@
 public class Snapshot {
-    private String name;
 
-    public Snapshot(String name) {
-        this.name = name;
+    private String state;
+
+    public Snapshot(String state) {
+        this.state = state;
     }
 
-    public String getName() {
-        return name;
+    public String getState() {
+        return state;
     }
-
 
 }
